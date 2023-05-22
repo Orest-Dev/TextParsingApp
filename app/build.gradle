@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.example.textparsingapp'
+    compileSdk gradleDependencies.compileSdk
+
+    defaultConfig {
+        applicationId "com.example.textparsingapp"
+        minSdk gradleDependencies.minSdk
+        targetSdk gradleDependencies.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            applicationIdSuffix ".app"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            applicationIdSuffix ".development"
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = conposeCompillerVersion
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation coroutines.lib
+
+    implementation lifecycle.viewModelCompose
+
+    implementation compose.activity
+    implementation compose.navigation
+    implementation compose.ui
+    implementation compose.material
+    implementation compose.runtime
+    implementation compose.foundation
+    implementation compose.foundationLayout
+    implementation compose.uiToolingPreview
+    implementation compose.constraintLayout
+
+    implementation hiltDependencies.lib
+    kapt hiltDependencies.kapt
+
+    implementation retrofit.jsonConverter
+}

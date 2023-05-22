@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TextParsingApp</string>
+    <string name="search_text">Please enter text to search for words from the dictionary</string>
+    <string name="parse">Parse</string>
+    <string name="no_results">Sorry, but we can\'t find any word in the entered text above</string>
+    <string name="error_text">Looks like somethings went wrong</string>
+    <string name="calculate">Calculate</string>
+    <string name="calculate_text">Please enter two numbers to calculate amount of bits that need to be changed in order to convert first one to another</string>
+    <string name="enter_number">Enter number</string>
+    <string name="enter_text">Enter text</string>
+</resources>
